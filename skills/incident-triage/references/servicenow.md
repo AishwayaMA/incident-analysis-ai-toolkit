@@ -1,7 +1,8 @@
 # ServiceNow
 
-Use the existing approved local `sn-query.js` reader. This repository does not
-include its code, organization-specific configuration, or authentication setup.
+Use the existing approved local `sn-query.js` reader. A sanitized copy is in
+[readers](../../../readers/README.md). Organization-specific configuration and
+authentication state are excluded; set `SN_BASE_URL` locally before using the copy.
 
 The existing command shape is:
 
