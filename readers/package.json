@@ -1,0 +1,14 @@
+{
+  "name": "splunk-servicenow-reader",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Read-only Splunk MCP server using an authenticated Playwright browser session",
+  "scripts": {
+    "start": "node splunk-mcp-server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "playwright": "^1.52.0"
+  }
+}
