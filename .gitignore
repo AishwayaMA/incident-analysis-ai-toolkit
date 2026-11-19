@@ -1,4 +1,9 @@
 .DS_Store
+.npmrc
+.servicenow-reader/
+.servicenow-reader-profile/
+.splunk-mcp-profile/
+*.query-lock
 .env
 .env.*
 !.env.example

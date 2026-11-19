@@ -4,9 +4,10 @@ Sanitized documentation of an existing incident-investigation workflow in VS Cod
 read an incident, trace local code, search production logs, optionally validate on
 stage, and report verified findings separately from hypotheses.
 
-This repository contains documentation and a blank analysis template only.
-It does not contain executable integrations, company scripts, internal addresses,
-incident records, member data, credentials, or live connections.
+This repository contains skill documentation, a blank analysis template, and
+sanitized copies of the existing JavaScript reader helpers. Internal default URLs
+were removed; no live connections, incident records, member data, or credentials
+are included. The original local readers are unchanged.
 
 ## Contents
 
@@ -15,6 +16,7 @@ incident records, member data, credentials, or live connections.
 - [ServiceNow workflow](skills/incident-triage/references/servicenow.md)
 - [GitHub, stage, and VS Code workflow](skills/incident-triage/references/tools.md)
 - [Blank incident analysis](templates/INC_NUMBER_analysis.md)
+- [Existing reader helpers and setup](readers/README.md)
 
 ## Use
 
@@ -23,10 +25,9 @@ incident records, member data, credentials, or live connections.
 3. Keep actual incident notes in approved local storage outside this repository.
 4. Use the blank template to distinguish observations, hypotheses, and evidence gaps.
 
-The CLI readers described here are existing prerequisites, not included packages.
-This repository cannot establish connections or reproduce their authentication setup.
-There is no new background service, browser automation package, or token-storage
-implementation here.
+The [reader helpers](readers/README.md) use the existing Node.js, Playwright, and
+Splunk MCP process. Configure approved endpoints locally and complete your own
+SSO sign-in. No new integration or alternative authentication mechanism was added.
 
 ## Full workflow: incident number to final analysis
 
@@ -89,20 +90,23 @@ With the existing approved readers and access already configured:
 
 The final deliverable is the persisted local analysis file, not just a chat
 answer. Actual incident analyses, screenshots, and log exports stay out of Git;
-only this generic workflow and the blank template belong in this repository.
+only sanitized helpers, generic workflow guidance, and blank templates belong here.
 Existing authenticated sessions are reused until expiry, with user-completed
 SSO/MFA when required.
 
 ## Session reuse
 
 Reuse an existing authenticated reader or shared browser tab until SSO expires.
-Complete sign-in and MFA yourself when prompted. Never export, copy, request,
+Complete sign-in and MFA yourself when prompted. Never manually export, request,
 log, or commit session tokens, cookies, passwords, or browser profiles.
+The existing readers manage browser session state locally: Splunk uses a persistent
+profile, and the ServiceNow helper carries session cookies in memory between its
+interactive and headless browsers. Profile contents remain sensitive and local.
 Session expiry and organizational sign-in policies still apply.
 
 ## Publication boundary
 
-Only publish sanitized workflow documentation and blank templates.
+Only publish sanitized helpers, workflow documentation, and blank templates.
 Keep real logs, screenshots, incident analyses, payloads, local configuration,
 and authentication material out of Git, including private repositories.
 Ignoring a file does not remove previously committed content.
